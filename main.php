@@ -55,8 +55,11 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
         <script src="<?php echo tpl_basedir()?>bower_components/gumby/js/libs/modernizr-2.6.2.min.js"></script>
 
         <?php tpl_metaheaders()?>
+
+        <?php tpl_includeFile('meta.html') ?>
     </head>
     <body>
+        <?php tpl_includeFile('topheader.html') ?>
         <div class="dokuwiki">
             <div class="navcontain">
                 <nav class="navbar" gumby-fixed="top" id="wiki__nav">
@@ -94,6 +97,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
                     </div>
                 </nav>
             </div>
+            <?php tpl_includeFile('header.html') ?>
             <div class="row">
                 <?php html_msgarea()?>
             </div>
@@ -110,6 +114,7 @@ $buffer = ob_get_clean();
 ?>
 
                 <div class="three columns" id="dokuwiki__sidebar">
+                        <?php tpl_includeFile('sidebarheader.html') ?>
                         <div class="row" id="toc__container">
                             <hr>
                             <h4 class="toggle" gumby-trigger="#dw__toc" style="cursor:pointer" id="toc__header"><?php echo $lang['toc']?>
@@ -121,15 +126,19 @@ $buffer = ob_get_clean();
                         <div class="row hide-on-phones" gumby-fixed="top" gumby-top="60" gumby-offset="60" style="text-align: center;">
                                 <a href="#" class="skip" gumby-goto="top" gumby-duration="600"><i class="icon icon-up-open-mini"></i><?php echo $lang['btn_top']?><i class="icon icon-up-open-mini"></i></a>
                         </div>
+                        <?php tpl_includeFile('sidebarfooter.html') ?>
                 </div> 
                 <div class="nine columns" id="dokuwiki__content">
+                    <?php tpl_includeFile('pageheader.html') ?>
                     <?php echo $buffer?>
                     <div class="row" id="page__info">
                         <?php tpl_userinfo()?> – <?php tpl_pageinfo()?>
                     </div>
+                    <?php tpl_includeFile('pagefooter.html') ?>
                 </div> 
             </div>
             <?php tpl_indexerWebBug(); ?>
         </div>
+        <?php tpl_includeFile('footer.html') ?>
     </body>
 </html>
