@@ -52,9 +52,9 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-        <?php tpl_metaheaders()?>
-
         <script src="<?php echo tpl_basedir()?>bower_components/gumby/js/libs/modernizr-2.6.2.min.js"></script>
+
+        <?php tpl_metaheaders()?>
     </head>
     <body>
         <div class="dokuwiki">
